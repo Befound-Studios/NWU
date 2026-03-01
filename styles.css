@@ -381,8 +381,11 @@ p {
 footer {
     background: #0c0e73;
     padding: 25px;
-    font-size: 14px;
+    font-size: 24px;
     text-align: center;
+    color: #ffffff;
+}
+footer a {
     color: #ffffff;
 }
 
