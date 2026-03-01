@@ -217,6 +217,7 @@ p {
 .life-item p {
     margin-top: 10px;
     font-weight: 600;
+    color: #fff;
 }
 
 /* ==================================================
@@ -468,4 +469,5 @@ footer a {
     .awards-grid {
         gap: 20px;
     }
+
 }
