@@ -212,6 +212,15 @@ p {
     object-fit: cover;
     border-radius: 50%;
     border: 4px solid rgba(255, 255, 255, .2);
+    transition: transform 0.3s ease;
+}
+
+.life-item:hover img {
+    transform: scale(1.25);
+}
+
+.life-item.selected img {
+    transform: scale(1.5);
 }
 
 .life-item p {
@@ -388,6 +397,29 @@ footer {
 }
 footer a {
     color: #ffffff;
+}
+
+/* ==================================================
+   SPONSORS
+================================================== */
+
+.sponsors {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.sponsors a img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.sponsors a img:hover {
+    transform: scale(1.1);
 }
 
 /* ==================================================
