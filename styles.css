@@ -19,3 +19,41 @@
 @media(max-width:680px){.wrap{width:min(100% - 36px,550px)}.section{padding:62px 0}.hero{min-height:650px}.hero-inner{display:block;padding:95px 0 95px}.hero-photo{background-position:57% center;background-image:linear-gradient(90deg,#06172ef0,#06152bb0 58%,#06193474),url('./media/residence/building%20zoomed%20out.jpeg')}.hero h1{font-size:clamp(42px,11vw,63px)}.hero-statement{font-size:clamp(33px,8vw,46px)}.hero-signature{margin:39px 5px 0 0;font-size:22px;text-align:left}.hero-intro{font-size:12px}.actions{gap:9px}.button{min-height:44px;padding:12px 17px;font-size:11px;gap:12px}.quick-nav-grid{grid-template-columns:repeat(2,1fr)}.quick-nav a{min-height:72px}.quick-nav a:nth-child(4):after{display:block}.quick-nav a:nth-child(even):after{display:none}.story-grid,.tradition-grid,.contact-grid{grid-template-columns:1fr;gap:25px}.story-picture{height:270px}.story-quote{grid-column:auto;min-height:130px}.story-quote .quote-mark{font-size:54px}.story-quote p{font-size:19px}.values-grid{grid-template-columns:repeat(2,1fr);gap:12px}.values-grid article{padding:10px 7px}.values-grid article>span{font-size:23px}.values-grid h3{font-size:11px}.values-grid p{font-size:10px}.section-head{align-items:flex-start;flex-direction:column;gap:7px}.life-grid{gap:11px}.life-grid article{height:240px}.life-grid article>div{padding:45px 12px 12px}.life-grid h3{font-size:12px}.life-grid p{font-size:9px}.tradition-visual img{height:270px}.awards-grid{gap:13px}.awards-grid img{height:138px}.awards-grid article>div{padding:12px}.awards-grid p{font-size:10px}.quote-cards{grid-template-columns:1fr}.quote-cards>div{min-height:125px}.apply-inner{flex-direction:column;align-items:stretch;gap:20px}.apply-actions{min-width:0}.location-photo,.location-photo img{min-height:320px;height:320px}.sponsor-grid{grid-template-columns:repeat(2,1fr);gap:11px}.sponsor{min-height:125px;padding:12px;gap:12px}.sponsor img{max-height:51px;max-width:115px}.sponsor-wordmark strong{font-size:19px}.sponsor>span{font-size:9px}.footer-grid{grid-template-columns:repeat(2,1fr);gap:30px}.footer-brand{grid-column:1/-1}.footer-bottom{flex-wrap:wrap}.footer-bottom small,.footer-bottom a{font-size:9px}}
 @media(max-width:420px){.brand-name strong{font-size:13px}.brand-name span{font-size:6px}.header-crest{width:62px}.header-crest img{height:54px}.nwu-link{width:42px;height:42px}.nav-toggle{width:40px}.life-grid{grid-template-columns:1fr 1fr}.life-grid article{height:205px}.contact-card>img{width:54px;height:62px}.contact-card a{font-size:10px}}
 @media(prefers-reduced-motion:reduce){html,.gallery-viewport{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+
+/* Reference-inspired Over de Voor section artwork: subdued blue washes and lion-crest detail */
+.story-section{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(135deg,#f8fbff 0%,#e2eefc 100%)}
+.story-section::before{content:"";position:absolute;z-index:-1;right:-65px;top:3%;width:min(39vw,460px);aspect-ratio:1;background:url("./media/logo.jpeg") center/contain no-repeat;opacity:.055;filter:grayscale(1) sepia(1) hue-rotate(170deg) saturate(2);pointer-events:none}
+.tradition-section{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 5% 100%,#91b8f133,transparent 58%),linear-gradient(125deg,#e8f2ff,#d3e5fa)}
+.tradition-section::before{content:"";position:absolute;z-index:-1;right:-5%;top:-19%;width:330px;aspect-ratio:1;border:40px solid #3675b510;border-radius:50%;box-shadow:0 0 0 33px #3675b508}
+.achievements{background:linear-gradient(140deg,#eff6ff,#fff 64%);position:relative}
+.achievements::before{content:"";position:absolute;right:0;top:0;width:230px;height:200px;pointer-events:none;background:radial-gradient(circle,#2b77c910 2px,transparent 3px) 0 0/19px 19px;opacity:.6}
+.gallery-section{background:radial-gradient(ellipse at 100% 85%,#70a1db1c,transparent 60%),#f9fbff}
+.quote-section{background:linear-gradient(150deg,#f1f7ff,#dceafb);position:relative}
+.quote-section::after{content:"";position:absolute;inset:auto 0 0;height:5px;background:linear-gradient(90deg,#0d3b84,#2c85e9,#0d3b84)}
+.sponsor-grid .sponsor img{width:100%;height:88px;max-width:185px;max-height:88px;object-fit:contain;object-position:center}
+.sponsor-grid .sponsor{gap:12px}
+/* Instagram: fixed-aspect four-up editorial gallery, not a stack of unconstrained images */
+.instagram-section{background:linear-gradient(165deg,#0b2d65 0%,#071a3f 73%);position:relative;overflow:hidden;isolation:isolate;color:#fff}
+.instagram-section::before{content:"";position:absolute;z-index:-1;right:-90px;top:-130px;width:min(44vw,520px);aspect-ratio:1;background:url('./media/logo.jpeg') center/contain no-repeat;opacity:.035;filter:grayscale(1) brightness(5);pointer-events:none}
+.instagram-section .eyebrow{color:#8fc5ff}
+.instagram-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:42px;margin-bottom:32px}
+.instagram-intro>div{max-width:740px}
+.instagram-intro h2{color:#fff;font-size:clamp(36px,4.6vw,58px);line-height:1.05;margin:5px 0 15px}
+.instagram-intro h2 em{font-style:normal;color:#71b4ff}
+.instagram-intro .ig-explain{margin:0;color:#d4e4ff;font-size:14px;line-height:1.75;max-width:64ch}
+.instagram-intro .button{flex:none;margin-bottom:6px;border:1px solid #9ed0ff}
+.instagram-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:stretch}
+.instagram-grid>a{position:relative;display:block;aspect-ratio:1/1;min-width:0;overflow:hidden;border-radius:12px;background:#1e487f;isolation:isolate;text-decoration:none;border:1px solid #87b7e035;box-shadow:0 12px 25px #00112b30}
+.instagram-grid>a img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .35s;display:block}
+.instagram-grid>a::after{content:"";position:absolute;z-index:0;inset:0;background:linear-gradient(180deg,transparent 55%,#07162bce 100%);pointer-events:none}
+.instagram-grid>a:hover img,.instagram-grid>a:focus-visible img{transform:scale(1.055)}
+.instagram-grid>a>span{position:absolute;z-index:1;inset:auto 15px 12px;color:white;font-size:12px;line-height:1.4;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:8px;text-shadow:0 2px 6px #000a}
+.instagram-grid>a b{font-size:18px;font-weight:400}
+.instagram-footnote{color:#b6cee7;font-size:11px;max-width:92ch;line-height:1.7;margin:22px 0 0}
+.instagram-linkline{margin:22px 0 0;font-size:12px;font-weight:700;color:#c9e1ff}
+.instagram-linkline a{color:#a7d5ff;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){.instagram-intro{align-items:flex-start;flex-direction:column;gap:20px}.instagram-grid{gap:10px}}
+@media(max-width:680px){.instagram-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.instagram-intro h2{font-size:clamp(34px,8.4vw,47px)}.instagram-grid>a{border-radius:9px}.instagram-grid>a>span{font-size:10px;inset:auto 10px 9px}.sponsor-grid .sponsor img{height:70px;max-height:70px}}
+@media(max-width:380px){.instagram-grid{gap:7px}.instagram-grid>a>span{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.instagram-grid>a img{transition:none!important}}
