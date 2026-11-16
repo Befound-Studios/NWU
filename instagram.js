@@ -22,8 +22,8 @@
       const posts=Array.isArray(data.posts)?data.posts.filter(post=>{
         try{
           const url=new URL(post.permalink);
-          const img=new URL(post.image);
-          return /(^|\.)instagram\.com$/.test(url.hostname) && url.protocol==='https:' && img.protocol==='https:';
+          const img=new URL(post.image, location.href);
+          return /(^|\.)instagram\.com$/.test(url.hostname) && url.protocol==='https:' && img.protocol==='https:' && img.origin===location.origin;
         }catch{return false;}
       }).sort((a,b)=>Date.parse(b.timestamp||0)-Date.parse(a.timestamp||0)).slice(0,4):[];
       if(!posts.length)return; // Honest static-gallery fallback until API is authorised.
@@ -31,7 +31,7 @@
         const a=document.createElement('a');
         a.href=post.permalink;a.target='_blank';a.rel='noopener noreferrer';
         const img=document.createElement('img');
-        img.src=post.image;img.alt=post.caption?post.caption.slice(0,140):'Over de Voor Instagram photo';
+        img.src=new URL(post.image, location.href).href;img.alt=post.caption?post.caption.slice(0,140):'Over de Voor Instagram photo';
         img.loading='lazy';img.referrerPolicy='no-referrer';
         const label=document.createElement('span');
         label.textContent=post.caption?post.caption.slice(0,55):'@overdevoor';
