@@ -1,0 +1,63 @@
+name: Update Over de Voor Instagram feed
+
+on:
+  schedule:
+    # Four checks per day; scheduled workflow times are approximate.
+    - cron: "17 2,8,14,20 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: over-de-voor-instagram-sync
+  cancel-in-progress: false
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+    env:
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_GRAPH_HOST: graph.instagram.com
+      IG_API_VERSION: v27.0
+    steps:
+      - name: Check Instagram connection
+        id: connection
+        shell: bash
+        run: |
+          if [[ -z "$IG_ACCESS_TOKEN" ]]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Instagram sync is not active until repository secret IG_ACCESS_TOKEN is configured for @overdevoor."
+          else
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check out site
+        if: steps.connection.outputs.enabled == 'true'
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        if: steps.connection.outputs.enabled == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Download latest authorised Instagram media
+        if: steps.connection.outputs.enabled == 'true'
+        run: python scripts/sync_instagram.py
+
+      - name: Commit refreshed photos and feed data
+        if: steps.connection.outputs.enabled == 'true'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- instagram-feed.json media/instagram/
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh Over de Voor Instagram gallery"
+            git push
+          else
+            echo "Instagram feed unchanged."
+          fi
