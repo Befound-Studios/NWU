@@ -22,7 +22,7 @@
     }
   });
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 900) close();
+    if (window.innerWidth > 1160) close();
   });
   const gallery = document.querySelector('[data-gallery]');
   const move = direction => {
